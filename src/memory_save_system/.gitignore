@@ -1,0 +1,12 @@
+*.key
+
+# LoCoMo — obtain from official release; do not commit
+data/locomo10.json
+
+# Python
+__pycache__/
+.venv/
+venv/
+
+# Ruff (linter cache; safe to delete)
+.ruff_cache/

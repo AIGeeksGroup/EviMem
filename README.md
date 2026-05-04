@@ -28,6 +28,7 @@ On the LoCoMo benchmark, EviMem improves Judge Accuracy over the multi-agent bas
 - `src/memory_retrieval_system/models.py`: SQLAlchemy schema for LaceMem's three-layer memory (Raw / Index / Edge).
 - `src/memory_retrieval_system/retriever.py`: base retrieval primitives — vector search over Index, graph expansion over Edge, raw text fetching.
 - `src/memory_retrieval_system/precompute_embeddings.py`: offline embedding precomputation for the Index layer.
+- `src/memory_save_system/`: optional LaceMem construction pipeline — ingest LoCoMo-style dialogue into Postgres (Raw / Index / Edge) and export SQLite for downstream runners; see `src/memory_save_system/README.md`.
 
 
 ## Method Summary
@@ -65,7 +66,7 @@ Download LoCoMo from its [official repository](https://github.com/snap-research/
 
 ### 4. Build the LaceMem memory database
 
-The runner expects a SQLite database containing the LaceMem layers (`raw_memory`, `memory_index`, `memory_index_edge`) for each conversation. Database construction factorises LoCoMo dialogue turns into atomic Index tuples via an LLM extractor; embedding precomputation for the Index layer is handled by `precompute_embeddings.py`.
+The runner expects a SQLite database containing the LaceMem layers (`raw_memory`, `memory_index`, `memory_index_edge`) for each conversation. One supported path is the pipeline under **`src/memory_save_system/`**: Postgres ingestion via LLM-backed managers plus optional `pg_to_sqlite.py` export (details in `src/memory_save_system/README.md`). Embedding precomputation for the Index layer remains `src/memory_retrieval_system/precompute_embeddings.py` when needed.
 
 By default the runner expects databases at `cache/mirix_dbs/{sample_id}.sqlite.db`.
 
@@ -117,7 +118,7 @@ Output JSON files are written to `--output-dir` (default `results/memory_retriev
 ## Notes on the Current Implementation
 
 - The runner script is a research codebase. Default paths assume the conventional layout (`cache/mirix_dbs/`, `results/memory_retrieval/`); adjust via CLI flags if your layout differs.
-- Memory database construction (factorising LoCoMo dialogue into LaceMem Index tuples and building Edge connections) is currently performed offline; comprehensive documentation for this pipeline is forthcoming.
+- Memory database construction (factorising LoCoMo dialogue into LaceMem layers) can be driven from `src/memory_save_system/` alongside offline embedding steps in `precompute_embeddings.py` when applicable.
 - The `provider=google_ai` path is supported but tested less thoroughly than the OpenAI path.
 - `IRIS_retriever_v5.py`'s factory `create_irr_retriever_v5()` exposes `calib_exact_floor`, `calib_inferrable_cap`, and `calib_partial_cap` parameters for confidence-calibration sensitivity studies.
 

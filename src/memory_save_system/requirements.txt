@@ -1,0 +1,4 @@
+# LaceMem-1.0 — LLM + Postgres ingest + optional SQLite export
+openai>=1.40.0
+psycopg[binary]>=3.1.0
+psycopg2-binary>=2.9.9
