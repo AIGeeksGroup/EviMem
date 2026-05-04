@@ -1,10 +1,14 @@
 # EviMem: Evidence-Gap-Driven Iterative Retrieval for Long-Term Conversational Memory
 
-This is the repository accompanying the paper:
+This is the official repository for the paper:
 
 > **EviMem: Evidence-Gap-Driven Iterative Retrieval for Long-Term Conversational Memory**
 >
-> Anonymous ACL submission
+> Yuyang Li\*, Yime He\*, [Zeyu Zhang](https://steve-zeyu-zhang.github.io/), [Dong Gong](https://donggong1.github.io/)†
+>
+> \*Equal contribution. †Corresponding author.
+>
+> ### [Paper](paper.pdf)
 
 
 ## Overview
