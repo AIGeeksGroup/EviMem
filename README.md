@@ -1,14 +1,10 @@
 # EviMem: Evidence-Gap-Driven Iterative Retrieval for Long-Term Conversational Memory
 
-This is the official repository for the paper:
+This is the repository accompanying the paper:
 
 > **EviMem: Evidence-Gap-Driven Iterative Retrieval for Long-Term Conversational Memory**
 >
-> Yuyang Li\*, Yime He\*, [Zeyu Zhang](https://steve-zeyu-zhang.github.io/), [Dong Gong](https://donggong1.github.io/)†
->
-> \*Equal contribution. †Corresponding author.
->
-> ### [Paper](paper.pdf)
+> Anonymous submission
 
 
 ## Overview
@@ -127,7 +123,7 @@ Output JSON files are written to `--output-dir` (default `results/memory_retriev
 
 This work builds on:
 
-- [LoCoMo](https://github.com/snap-research/locomo) — the long-term conversational memory benchmark used throughout our experiments.
+- LoCoMo — the long-term conversational memory benchmark used throughout our experiments.
 - OpenAI GPT-4o and GPT-4o-mini — used as answer generator, sufficiency evaluator, query refinement model, and primary judge.
 - DeepSeek-V3.2 — used for cross-family judge validation and LLM-backbone robustness experiments.
-- [BAAI/bge-m3](https://huggingface.co/BAAI/bge-m3) — open-weights multilingual embedding model used for embedding-axis robustness experiments.
+- BAAI/bge-m3 — open-weights multilingual embedding model used for embedding-axis robustness experiments.
