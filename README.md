@@ -8,6 +8,8 @@ This is the official repository for the paper:
 >
 > \*Equal contribution. †Corresponding author.
 >
+> ***AACL-IJCNLP 2026***
+>
 > ### [Paper](https://arxiv.org/abs/2604.27695) | [HF Paper](https://huggingface.co/papers/2604.27695)
 
 
